@@ -91,6 +91,7 @@ class DomBuilder
      * @param {string} element [element wanted to be created]
 	 * @param {Object} attributes [attributes object]
 	 * @param {string} text [element text content]
+     * @return {DomBuilder} [the same object]
      */
     child(element, attributes, text = null)
     {
@@ -103,11 +104,12 @@ class DomBuilder
         this.#last_child = child;
     	child = child.draw();
     	this.#element.appendChild(child);
+        return this;
     }
 
     /**
      * [#draw returns the DOM element]
-     * @return {DOM Object} [the #element]
+     * @return {DOMObject} [the #element]
      */
     draw()
     {
